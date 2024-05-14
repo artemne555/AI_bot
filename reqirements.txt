@@ -1,0 +1,6 @@
+transformers       >= 4.38.2
+pip                >= 23.3.1
+pyTelegramBotAPI   >= 4.14.1
+requests           >= 2.25.1
+Python             >= 3.8
+sqlite             >= 2.1
