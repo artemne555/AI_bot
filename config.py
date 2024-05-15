@@ -1,4 +1,4 @@
-HOME_DIR = 'C:/С рабочего стола/telegram bots/AI_bot'
+HOME_DIR = '/home/student/AI_bot'
 LOGS = f'{HOME_DIR}/logs.txt'
 
 IAM_TOKEN_PATH = f'{HOME_DIR}/creds/iam_token.txt'
