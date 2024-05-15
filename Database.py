@@ -18,14 +18,14 @@ def create_table(db_name=DB_FILE):
         pass
 
 def insert_data(user_id):
-    con = sqlite3.connect('ЭТО_БАЗА.sqlite')
+    con = sqlite3.connect(DB_FILE)
     cur = con.cursor()
     cur.execute(f'''INSERT INTO users_tokens(user_id, tts_symbols, stt_blocks, gpt_tokens) VALUES({user_id}, 0, 0, 0);''')
     con.commit()
     con.close()
 
 def update_data(user_id, column, value):
-    con = sqlite3.connect('ЭТО_БАЗА.sqlite')
+    con = sqlite3.connect(DB_FILE)
     cur = con.cursor()
     sql_query = f"UPDATE users_tokens SET {column} = ? WHERE user_id = ?;"
     cur.execute(sql_query, (value, user_id))
@@ -33,7 +33,7 @@ def update_data(user_id, column, value):
     con.close()
 
 def collect_users_data(column):
-    con = sqlite3.connect('ЭТО_БАЗА.sqlite')
+    con = sqlite3.connect(DB_FILE)
     cur = con.cursor()
     sql_query = f"SELECT {column} FROM users_tokens ORDER BY id DESC;"
     res = [i[0] for i in cur.execute(sql_query)]
@@ -42,7 +42,7 @@ def collect_users_data(column):
     return res
 
 def collect_user_data(user_id, column):
-    con = sqlite3.connect('ЭТО_БАЗА.sqlite')
+    con = sqlite3.connect(DB_FILE)
     cur = con.cursor()
     sql_query = f"SELECT {column} FROM users_tokens WHERE user_id = {user_id} ORDER BY id DESC;"
     res = [i[0] for i in cur.execute(sql_query)]
