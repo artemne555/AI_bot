@@ -1,6 +1,7 @@
 import sqlite3
+from config import DB_FILE
 
-def create_table(db_name="ЭТО_БАЗА.sqlite"):
+def create_table(db_name=DB_FILE):
     try:
         with sqlite3.connect(db_name) as conn:
             cursor = conn.cursor()
